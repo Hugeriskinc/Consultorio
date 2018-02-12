@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1500" pageHeight="595" orientation="Landscape" columnWidth="1460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc430509-3092-48e1-8abb-b4dc9e6af7a5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     consultas.`Id_Consulta` AS consultas_Id_Consulta,
+     consultas.`nombre_pa` AS consultas_nombre_pa,
+     consultas.`nombre_me` AS consultas_nombre_me,
+     consultas.`Sintomas1` AS consultas_Sintomas1,
+     consultas.`Sintomas2` AS consultas_Sintomas2,
+     consultas.`Sintomas3` AS consultas_Sintomas3,
+     consultas.`Sintomas4` AS consultas_Sintomas4,
+     consultas.`Sintomas5` AS consultas_Sintomas5,
+     consultas.`Libras` AS consultas_Libras,
+     consultas.`Respiracion` AS consultas_Respiracion,
+     consultas.`Observacion` AS consultas_Observacion,
+     consultas.`Fecha_registro` AS consultas_Fecha_registro
+FROM
+     `consultas` consultas]]>
+	</queryString>
+	<field name="consultas_Id_Consulta" class="java.math.BigDecimal"/>
+	<field name="consultas_nombre_pa" class="java.lang.String"/>
+	<field name="consultas_nombre_me" class="java.lang.String"/>
+	<field name="consultas_Sintomas1" class="java.lang.String"/>
+	<field name="consultas_Sintomas2" class="java.lang.String"/>
+	<field name="consultas_Sintomas3" class="java.lang.String"/>
+	<field name="consultas_Sintomas4" class="java.lang.String"/>
+	<field name="consultas_Sintomas5" class="java.lang.String"/>
+	<field name="consultas_Libras" class="java.lang.String"/>
+	<field name="consultas_Respiracion" class="java.lang.String"/>
+	<field name="consultas_Observacion" class="java.lang.String"/>
+	<field name="consultas_Fecha_registro" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="138" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="565" y="0" width="324" height="62" uuid="2091cf3f-4b20-48c7-ad0b-2cf31596e859"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Doctor's office]]></text>
+			</staticText>
+			<textField pattern="h.mm a">
+				<reportElement style="Column header" x="1351" y="73" width="109" height="20" forecolor="#736343" uuid="6a3316de-85a3-467e-84e8-30f26a629a65"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="1351" y="93" width="109" height="20" forecolor="#736343" uuid="70e88e75-4322-4675-a458-b783257d2c46"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1251" y="73" width="100" height="20" uuid="89c001a3-9f81-469f-a9ec-796be4910370"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1251" y="93" width="100" height="20" uuid="0dfeec51-4851-4f09-8f17-a9aa8e57d33f"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="671" y="62" width="131" height="20" uuid="45343ce4-5767-4924-81f8-36d93751e915"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reportes Consulta]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="3f041ad7-3dfc-4033-b1d1-744e5f455024"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="110" height="15" forecolor="#736343" uuid="69a7a865-5d8b-4ba8-b153-885edba66003"/>
+				<text><![CDATA[Codigo Consulta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="175" y="0" width="108" height="15" forecolor="#736343" uuid="fbfd6a6b-cd0f-46e6-99d5-42e735a59c85"/>
+				<text><![CDATA[Nombre Pacientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="317" y="0" width="94" height="15" forecolor="#736343" uuid="a8dba93f-7aad-433d-995c-c6d0a6d45530"/>
+				<text><![CDATA[Nombre Medico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="447" y="0" width="66" height="15" forecolor="#736343" uuid="bbecc4ea-4383-4e09-8f57-1c286caa0ec0"/>
+				<text><![CDATA[Sintomas 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="549" y="0" width="66" height="15" forecolor="#736343" uuid="331f88f1-5daa-4f88-a2e7-a4c9ca179e7a"/>
+				<text><![CDATA[Sintomas 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="642" y="1" width="66" height="15" forecolor="#736343" uuid="55250d4c-5c77-4a4e-8e59-cff1e456e746"/>
+				<text><![CDATA[Sintomas 3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="755" y="0" width="66" height="15" forecolor="#736343" uuid="b958a9bd-053a-48f6-a0ad-970a3a20d9b6"/>
+				<text><![CDATA[Sintomas 4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="889" y="0" width="66" height="15" forecolor="#736343" uuid="250f37bc-ddb3-40a3-b4e3-2da3e0147535"/>
+				<text><![CDATA[Sintomas 5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1003" y="0" width="66" height="15" forecolor="#736343" uuid="9c8d1a35-bcaf-4e55-89b5-27c3e334bd57"/>
+				<text><![CDATA[Libras]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1127" y="0" width="66" height="15" forecolor="#736343" uuid="e1385102-e638-4e76-b1f2-bbe21e3188ac"/>
+				<text><![CDATA[Respiracion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1249" y="0" width="66" height="15" forecolor="#736343" uuid="5fd50120-cd72-4ec9-8204-cb25e36d7ed1"/>
+				<text><![CDATA[Observacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1378" y="0" width="66" height="15" forecolor="#736343" uuid="57a96295-15c0-4543-b934-a9a58264936e"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="853" height="15" uuid="b58492b9-efa7-40cc-8b66-729fbe607d02"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="66" height="15" uuid="e8f6852d-0018-423d-a37a-b3a2a818ccc3"/>
+					<textFieldExpression><![CDATA[$F{consultas_Id_Consulta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="175" y="0" width="66" height="15" uuid="c2585b71-e84f-4217-b9d8-b068a572c060"/>
+					<textFieldExpression><![CDATA[$F{consultas_nombre_pa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="447" y="0" width="66" height="15" uuid="ea113482-5c38-4375-ad8e-2df61610d64c"/>
+					<textFieldExpression><![CDATA[$F{consultas_Sintomas1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="549" y="0" width="66" height="15" uuid="12373b40-34e9-4ebc-814f-008d0b3f97f1"/>
+					<textFieldExpression><![CDATA[$F{consultas_Sintomas2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="642" y="0" width="66" height="15" uuid="dc4cb763-281f-4ab7-b93f-466a07599766"/>
+					<textFieldExpression><![CDATA[$F{consultas_Sintomas3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="755" y="0" width="66" height="15" uuid="9797a3b3-a351-4cc1-a766-86816182d088"/>
+					<textFieldExpression><![CDATA[$F{consultas_Sintomas4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="317" y="0" width="66" height="15" uuid="0edf4f7d-3ea4-4e1d-9c82-7f667af30f75"/>
+					<textFieldExpression><![CDATA[$F{consultas_nombre_me}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="1371" y="0" width="80" height="15" uuid="c342614b-2069-416e-b8bc-145a8972379c"/>
+				<textFieldExpression><![CDATA[$F{consultas_Fecha_registro}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="1238" y="0" width="86" height="15" uuid="b198d8ec-e3fd-4b65-8799-e5098407edd9"/>
+				<textFieldExpression><![CDATA[$F{consultas_Observacion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="1127" y="0" width="66" height="15" uuid="906693d8-df45-42d9-9e1d-5006f7297df5"/>
+				<textFieldExpression><![CDATA[$F{consultas_Respiracion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="1003" y="0" width="66" height="15" uuid="ac7a38a2-b31b-4d50-8af7-69decb1e8e44"/>
+				<textFieldExpression><![CDATA[$F{consultas_Libras}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="889" y="0" width="66" height="15" uuid="322858ac-f98b-4eb0-9ace-9bb5c7c5a4ff"/>
+				<textFieldExpression><![CDATA[$F{consultas_Sintomas5}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="50d96d8c-a1f2-4cc0-be48-c811d5859665"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="1481" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="01aff45d-a767-46bc-b418-25c45f75f79f"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

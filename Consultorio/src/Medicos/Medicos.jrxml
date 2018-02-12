@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" printOrder="Horizontal" pageWidth="1000" pageHeight="595" orientation="Landscape" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="456d98b4-bb3e-447c-9115-ed99191ebda6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     medicos.`Id_medico` AS medicos_Id_medico,
+     medicos.`Nombre_me` AS medicos_Nombre,
+     medicos.`Apellido` AS medicos_Apellido,
+     medicos.`Fecha_registro` AS medicos_Fecha_registro,
+     medicos.`Telefono` AS medicos_Telefono,
+     medicos.`Contrasena` AS medicos_Contrasena,
+     medicos.`Categoria` AS medicos_Categoria
+FROM
+     `medicos` medicos]]>
+	</queryString>
+	<field name="medicos_Id_medico" class="java.math.BigDecimal"/>
+	<field name="medicos_Nombre" class="java.lang.String"/>
+	<field name="medicos_Apellido" class="java.lang.String"/>
+	<field name="medicos_Fecha_registro" class="java.sql.Date"/>
+	<field name="medicos_Telefono" class="java.lang.String"/>
+	<field name="medicos_Contrasena" class="java.lang.String"/>
+	<field name="medicos_Categoria" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="270" y="0" width="330" height="62" uuid="642964b6-9e70-4e2c-98fb-73bcfc5c7045"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Doctor's office]]></text>
+			</staticText>
+			<textField pattern="h.mm a">
+				<reportElement style="Column header" x="679" y="80" width="98" height="20" forecolor="#736343" uuid="7934c347-e45c-4263-bd1e-5f2bc713a01b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="679" y="100" width="98" height="20" forecolor="#736343" uuid="518f5e81-77a1-4a60-a7e1-758c91a63f88"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="579" y="80" width="100" height="20" uuid="a2eaf90f-e2b0-4af5-9edf-099c455102eb"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="579" y="100" width="100" height="20" uuid="b535ad5a-3750-44e6-b7d6-0a7e9c4488fb"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="bddbbf20-f4ec-4460-9184-5b29187a0994"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="114" height="15" forecolor="#736343" uuid="1c14b9c9-0eac-4d6e-aed6-f0b77ad242e9"/>
+				<text><![CDATA[Codigo Medico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="114" y="0" width="90" height="15" forecolor="#736343" uuid="fee70479-7fd8-42a6-a5c4-03125b758639"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="330" y="0" width="114" height="15" forecolor="#736343" uuid="19321899-41d3-48c1-9d79-5ff505385894"/>
+				<text><![CDATA[Fecha de Registro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="458" y="0" width="114" height="15" forecolor="#736343" uuid="896dec8e-7c90-4bb9-8701-ff447d3171e2"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="574" y="0" width="114" height="15" forecolor="#736343" uuid="d52fea93-0cfd-41c4-9c44-f441452e152a"/>
+				<text><![CDATA[Contrasena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="697" y="0" width="114" height="15" forecolor="#736343" uuid="bfadc688-08cc-4b04-935e-b5e929b4de69"/>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="228" y="0" width="90" height="15" forecolor="#736343" uuid="2a4f0ca2-f101-477d-88b4-e41fe9fe5a56"/>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="960" height="15" uuid="a1b5a0e5-461a-42a0-a06b-60b19d47af88"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="114" height="15" uuid="e492a26e-9f07-4ad5-bef4-6bcbf065d2d1"/>
+					<textFieldExpression><![CDATA[$F{medicos_Id_medico}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="114" y="0" width="90" height="15" uuid="94327545-7862-445a-b984-af0e1cf0e63f"/>
+					<textFieldExpression><![CDATA[$F{medicos_Nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="330" y="0" width="114" height="15" uuid="3686ffbd-def1-4267-ac9a-0e597bec27fc"/>
+					<textFieldExpression><![CDATA[$F{medicos_Fecha_registro}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="458" y="0" width="114" height="15" uuid="61c1086c-2030-44e7-a3bf-572d2a9b1200"/>
+					<textFieldExpression><![CDATA[$F{medicos_Telefono}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="574" y="0" width="114" height="15" uuid="7fb482e3-fd3b-40fd-81dc-9e3aef4e5955"/>
+					<textFieldExpression><![CDATA[$F{medicos_Contrasena}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="697" y="0" width="114" height="15" uuid="ddd10c76-dfe1-4360-aaa0-992fc8221540"/>
+					<textFieldExpression><![CDATA[$F{medicos_Categoria}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="228" y="0" width="90" height="15" uuid="214e3434-666d-4f14-9614-9a46112b4109"/>
+					<textFieldExpression><![CDATA[$F{medicos_Apellido}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="86a0e9fa-d304-4203-b1cf-084a1eebde30"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="981" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="6b8eadeb-2eeb-431b-8b12-5f9135e565a7"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

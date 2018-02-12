@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6555f05e-0605-40e0-89ea-b772ba1a4054">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     pacientes_ingresados.`Id_paciingre` AS pacientes_ingresados_Id_paciingre,
+     pacientes_ingresados.`nombre_pa` AS pacientes_ingresados_Id_pacientes,
+     pacientes_ingresados.`nombre_tra` AS pacientes_ingresados_Id_tratamiento,
+     pacientes_ingresados.`nombre_me` AS pacientes_ingresados_Id_medico,
+     pacientes_ingresados.`Causa` AS pacientes_ingresados_Causa,
+     pacientes_ingresados.`Estado` AS pacientes_ingresados_Estado
+FROM
+     `pacientes_ingresados` pacientes_ingresados]]>
+	</queryString>
+	<field name="pacientes_ingresados_Id_paciingre" class="java.math.BigDecimal"/>
+	<field name="pacientes_ingresados_Id_pacientes" class="java.lang.String"/>
+	<field name="pacientes_ingresados_Id_tratamiento" class="java.lang.String"/>
+	<field name="pacientes_ingresados_Id_medico" class="java.lang.String"/>
+	<field name="pacientes_ingresados_Causa" class="java.lang.String"/>
+	<field name="pacientes_ingresados_Estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="270" y="0" width="314" height="62" uuid="a41330e7-07d4-4bf4-a3b1-0b5eb10b4bf5"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Doctor's office]]></text>
+			</staticText>
+			<textField pattern="h.mm a">
+				<reportElement style="Column header" x="705" y="82" width="93" height="20" forecolor="#736343" uuid="d4554655-d613-4cc6-9a9e-88df37d11ce5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="705" y="102" width="93" height="20" forecolor="#736343" uuid="08d763bd-2a8b-4085-ba8a-926ab7f23906"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="605" y="82" width="100" height="20" uuid="91f580dc-cb0b-417d-8af1-03f5882e4480"/>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="605" y="102" width="100" height="20" uuid="9ac426ed-d9e6-4441-b57a-901d160219ed"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="62" width="231" height="20" uuid="3981cbf4-640a-40a2-85e1-678b91a531d0"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reportes Pacientes Ingresados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="9e2bf9af-fa45-46b0-b07d-4672ed88cae1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="161" height="15" forecolor="#736343" uuid="d5f9b449-4800-4898-8899-6b1711b051e0"/>
+				<text><![CDATA[Codigo Paciente Ingresado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="187" y="0" width="115" height="15" forecolor="#736343" uuid="cfb6078f-ff78-40f0-9ab1-dace7df1596c"/>
+				<text><![CDATA[Nombre Pacientes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="320" y="0" width="118" height="15" forecolor="#736343" uuid="e44d6760-971d-459c-8afb-1c65d5cd76c9"/>
+				<text><![CDATA[Nombre Tratamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="453" y="0" width="91" height="15" forecolor="#736343" uuid="86d3611b-279c-411e-a085-477d211b3b96"/>
+				<text><![CDATA[Nombre Medico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="576" y="0" width="97" height="15" forecolor="#736343" uuid="3c751450-9398-4083-b169-60f7a876b37e"/>
+				<text><![CDATA[Causa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="702" y="0" width="97" height="15" forecolor="#736343" uuid="23319a40-e5a1-4500-8b3c-f6fef05834a1"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="26821188-4be0-47bd-8c7a-d2711d25acfc"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="133" height="15" uuid="cd9a834b-59ee-49d0-916f-42a693d4c5a5"/>
+					<textFieldExpression><![CDATA[$F{pacientes_ingresados_Id_paciingre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="187" y="0" width="103" height="15" uuid="43053d88-4372-4b62-afa4-d629793a2e1b"/>
+					<textFieldExpression><![CDATA[$F{pacientes_ingresados_Id_pacientes}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="320" y="0" width="118" height="15" uuid="15376261-10de-4cdc-8b7b-8baec8b3f7a7"/>
+					<textFieldExpression><![CDATA[$F{pacientes_ingresados_Id_tratamiento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="453" y="0" width="91" height="15" uuid="23dbcf0e-ab42-4252-9807-268d8a86ce7b"/>
+					<textFieldExpression><![CDATA[$F{pacientes_ingresados_Id_medico}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="576" y="0" width="97" height="15" uuid="5ab067d7-eeee-46e4-ad38-c54f5982eebd"/>
+					<textFieldExpression><![CDATA[$F{pacientes_ingresados_Causa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="702" y="0" width="97" height="15" uuid="7f5564cc-f850-473d-a89e-bff1f160772c"/>
+					<textFieldExpression><![CDATA[$F{pacientes_ingresados_Estado}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="1bdadd52-1067-4802-ac40-1667cf97aecb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="f79818d3-e11c-40ad-9d39-a36a1b17ed34"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
