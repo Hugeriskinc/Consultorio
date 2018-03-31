@@ -1,4 +1,4 @@
-insert into medicos(id_medico, Nombre, Apellido, Fecha_registro, Telefono, Contrasena, Categoria)
+insert into medicos(id_medico, Nombre, Apellido, Fecha_registro, Telefono, Contraseña, Categoria)
 values(1, 'Oscar', 'Ortiz', '21/01/1995', '829-351-0616', 'Oscar3031', 'ADM');
 
 insert into medicos(id_medico, Nombre, Apellido, Fecha_registro, Telefono, Contrasena, Categoria)

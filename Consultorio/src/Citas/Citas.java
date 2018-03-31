@@ -36,7 +36,7 @@ public class Citas extends javax.swing.JFrame {
         
         try{
             
-            OracleResultSet rst = (OracleResultSet) bd.Vertodo("select * from Pacientes");
+            ResultSet rst = bd.Vertodo("select * from Pacientes");
             ResultSet rst2 = bd.Vertodo("select * from Medicos");
             DefaultTableModel model = new DefaultTableModel(), model1 = new DefaultTableModel();
             jtConsulta.setModel(model);

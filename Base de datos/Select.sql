@@ -6,6 +6,6 @@ select * from Medicos where Nombre = 'Oscar';
 
 select * from citas;
 
-select * from consultas;
-
 select * from pacientes;
+
+select * from consultas;

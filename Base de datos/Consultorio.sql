@@ -17,7 +17,7 @@ Nombre varchar2(20),
 Apellido varchar2(20),
 Fecha_registro date,
 Telefono varchar2(12),
-Contrasena varchar2(20),
+Contraseña varchar2(20),
 Categoria varchar2(3),
 constraint pk_Medicos primary key (Id_medico));
 
@@ -80,10 +80,13 @@ constraint fk_Pacientes1 foreign key(Id_pacientes) references Pacientes(Id_pacie
 constraint fk_Tratamiento1 foreign key(Id_tratamiento) references Tratamiento(Id_tratamiento),
 constraint fk_Medicos1 foreign key(Id_medico) references Medicos(Id_medico));
 
-drop table citas;
-drop table consultas;
-drop table recetas;
-drop table pacientes_ingresados;
-drop table tratamiento;
-drop table medicos;
-drop table pacientes;
+create user ADM identified by Administrador1234;
+
+drop table Tratamiento;
+drop table Medicos;
+drop table Pacientes;
+drop table Pacientes_ingresados;
+drop table Consultas;
+drop table Recetas;
+drop table Citas;
+drop table Usuarios;
